@@ -11,7 +11,7 @@ provider "aws" {
 resource "aws_security_group" "demosg" {
   name        = "CICD Security Group"
   description = "Demo Module"
-  vpc_id      = "${vpc_id}"
+  vpc_id      = var.awsvpc_id
 
   # Inbound Rules
   # HTTP access from anywhere
