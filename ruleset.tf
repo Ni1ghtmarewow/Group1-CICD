@@ -54,14 +54,6 @@ resource "aws_security_group" "demosg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Ingestion Port
-  ingress {
-    from_port   = 9997
-    to_port     = 9997
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
   # Outbound Rules
   # Internet access to anywhere
   egress {
