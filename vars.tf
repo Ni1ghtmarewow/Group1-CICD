@@ -4,5 +4,5 @@ variable "aws_region" {
 }
 
 variable "awsvpc_id" {
-    default = "vpc-080e80a9cefdc50b4"
+    default = "vpc-0932b08efe907f418"
 }
