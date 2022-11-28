@@ -54,14 +54,6 @@ resource "aws_security_group" "demosg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # Management Port
-  ingress {
-    from_port   = 4598
-    to_port     = 4598
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
   # Ingestion Port
   ingress {
     from_port   = 9997
