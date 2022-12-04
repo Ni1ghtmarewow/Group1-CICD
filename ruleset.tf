@@ -25,7 +25,7 @@ resource "aws_security_group" "demosg" {
   # HTTPS access from anywhere
   ingress {
     from_port   = var.https_port
-    to_port     = 443
+    to_port     = var.https_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
