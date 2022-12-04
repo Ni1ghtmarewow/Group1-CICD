@@ -16,15 +16,15 @@ resource "aws_security_group" "demosg" {
   # Inbound Rules
   # HTTP access from anywhere
   ingress {
-    from_port   = 80
-    to_port     = 80
+    from_port   = var.http_port
+    to_port     = var.http_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   # HTTPS access from anywhere
   ingress {
-    from_port   = 443
+    from_port   = var.https_port
     to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
@@ -32,24 +32,40 @@ resource "aws_security_group" "demosg" {
 
   # SSH access from anywhere
   ingress {
-    from_port   = 22
-    to_port     = 22
+    from_port   = var.ssh_port
+    to_port     = var.ssh_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
   # Splunk default port
   ingress {
-    from_port   = 8000
-    to_port     = 8000
+    from_port   = var.splunk_port
+    to_port     = var.splunk_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
   
   # Replication Port
   ingress {
-    from_port   = 8089
-    to_port     = 8089
+    from_port   = var.replication_port
+    to_port     = var.replication_port
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # Management Port
+  ingress {
+    from_port   = var.management_port
+    to_port     = var.management_port
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  # Ingestion Port
+  ingress {
+    from_port   = var.ingestion_port
+    to_port     = var.ingestion_port
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
