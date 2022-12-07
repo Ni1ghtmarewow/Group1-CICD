@@ -4,7 +4,11 @@ variable "aws_region" {
 }
 
 variable "awsvpc_id" {
-    default = "vpc-0932b08efe907f418"
+    default = "vpc-0b579968dc4d7e079"
+}
+
+variable "awsvpc2_id" {
+    default = "vpc-0c0db58d1f51466b6"
 }
 
 variable "ssh_port" {
