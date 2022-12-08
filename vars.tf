@@ -8,7 +8,7 @@ variable "awsvpc_id" {
 }
 
 variable "awsvpc2_id" {
-    default = "vpc-0bfeb82dc7316f978"
+    default = "vpc-05865e3e6f8df557c"
 }
 
 variable "ssh_port" {
