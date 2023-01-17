@@ -2,11 +2,6 @@ provider "aws" {
   region = "${var.aws_region}"
 }
 
-
-#module "ez" {
-#source = "git@github.com:Ni1ghtmarewow/Sogeti---Group-1.git"
-#source = "./modules" # Local AWS
-
 # Creating Security Group
 resource "aws_security_group" "demosg" {
   name        = "CICD Security Group"
