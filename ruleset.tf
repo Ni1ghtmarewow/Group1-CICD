@@ -1,3 +1,8 @@
+provider "aws" {
+  region = "${var.aws_region}"
+}
+
+
 #module "ez" {
 #source = "git@github.com:Ni1ghtmarewow/Sogeti---Group-1.git"
 #source = "./modules" # Local AWS
@@ -17,12 +22,12 @@ resource "aws_security_group" "demosg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # HTTPS access from anywhere
+ # SSH access from specific IPs
   ingress {
     from_port   = var.https_port
     to_port     = var.https_port
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["0.0.0.0/0"]#change the IPs that able to joig SSH connection
   }
 
   # SSH access from anywhere
@@ -30,7 +35,7 @@ resource "aws_security_group" "demosg" {
     from_port   = var.ssh_port
     to_port     = var.ssh_port
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["145.93.137.59/32", "145.93.136.155/32"]
   }
 
   # Splunk default port
@@ -73,13 +78,8 @@ resource "aws_security_group" "demosg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
-
-  tags = {
-    Name = "CICD Security Group"
-  }
 }
 resource "aws_security_group" "democicd" {
-  provider = aws.main
   name        = "CICD Security Group"
   description = "Demo Module"
   vpc_id      = var.awsvpc2_id
@@ -101,11 +101,11 @@ resource "aws_security_group" "democicd" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  # SSH access from anywhere
+  # SSH access from specific IPs
   ingress {
     from_port   = var.ssh_port
     to_port     = var.ssh_port
     protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
+    cidr_blocks = ["145.93.137.59/32", "145.93.136.155/32"]#change the IPs that able to joig SSH connection
   }
 }
